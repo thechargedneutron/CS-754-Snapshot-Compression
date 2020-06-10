@@ -1,0 +1,7 @@
+%% Load images
+num_images = 51;
+img_size = [320, 240];
+X = zeros(num_images, img_size(1)*img_size(2));
+for i=1:num_images
+    X(i, :) = imread( stri
+end
