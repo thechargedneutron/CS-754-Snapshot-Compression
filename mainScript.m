@@ -27,6 +27,6 @@ end
 y = H*X;
 
 %% Reconstruct
-max_iter = 100;
-mu = 128;
-X_hat = CbPGD(H, y, mu, max_iter);
+max_iter = 9;
+mu = 1e-8;
+[X_hat, e] = CbPGD(H, y, mu, max_iter);
