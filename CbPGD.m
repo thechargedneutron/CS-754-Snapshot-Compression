@@ -1,4 +1,4 @@
-function [e, x_hat] = CbPGD(H, y, mu, max_iter)
+function [x_hat, e] = CbPGD(H, y, mu, max_iter)
 
 x_hat = zeros(size(H, 2), 1);
 

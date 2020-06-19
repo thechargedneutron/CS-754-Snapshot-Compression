@@ -1,10 +1,10 @@
-function [X_hat, X] = mainScript(B)
+function [X_hat, X, e] = mainScript(B, downsample_factor)
     %clear all
 
     %% Load images
     %B = 1;
     data_img_size = [320, 240];
-    downsample_factor= 7;
+    %downsample_factor= 7;
     img = mean(imread('dataset/frames/1.png'), 3);
     sample = imresize(img, 1/downsample_factor, 'bilinear');
     [r, c] = size(sample);
@@ -30,8 +30,8 @@ function [X_hat, X] = mainScript(B)
 
     %% Reconstruct
     max_iter = 30;
-    mu = 1.5;
-    [X_hat, e] = CbGAP(H, y, mu, max_iter);
+    mu = 0.08;
+    [X_hat, e] = CbPGD(H, y, mu, max_iter);
 
     %% Results
     disp('PSNR is ...')
